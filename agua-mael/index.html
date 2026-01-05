@@ -4,116 +4,202 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" href="favicon.png">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  
   <style>
-    * {
-      font-family: 'Montserrat', sans-serif;
-      box-sizing: border-box;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    html { scroll-behavior: smooth; }
-    body { background-color: #f8fafc; color: #1e293b; }
-    .bg-mael-dark { background-color: #203756; }
-    .text-mael-dark { color: #203756; }
-    .bg-mael-accent { background-color: #3b82f6; }
-    .shadow-glow { box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.4); }
-    .border-upgrade { border: 3px solid #3b82f6; }
-  </style>
-  <title>Propuesta de Alianza | Agua Mael</title>
-</head>
-<body>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+    
+    * { font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+    body { background-color: #ffffff; color: #1e293b; overflow-x: hidden; }
 
-  <header class="bg-mael-dark text-white py-12 px-6 text-center relative">
-    <div class="relative z-10">
-      <img src="logo.jpg" alt="Agua Mael" class="w-44 mx-auto rounded-full border-4 border-blue-400 mb-2">
-      <h1 class="text-3xl font-black uppercase tracking-tighter">AGUA MAEL: EL SALTO A SOCIOS</h1>
-      <p class="text-blue-200 text-sm mt-2 max-w-md mx-auto italic">"No buscamos clientes, buscamos aliados para dominar el mercado de Huaycán."</p>
+    /* Colores Marca */
+    .text-mael-dark { color: #203756; }
+    .bg-mael-dark { background-color: #203756; }
+    .bg-electric-blue { background-color: #3b82f6; }
+    .text-electric-blue { color: #3b82f6; }
+
+    /* Animaciones de números y barras */
+    .counter-value { display: inline-block; }
+    
+    .progress-bar-container { background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+    .progress-bar-fill { 
+      width: 0%; 
+      height: 100%; 
+      background: linear-gradient(90deg, #203756, #3b82f6);
+      transition: width 2s ease-in-out;
+    }
+
+    /* Cards con Elevación Sutil */
+    .benefit-card {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      border-color: #3b82f6;
+    }
+
+    /* Botón con brillo */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: "";
+      position: absolute;
+      top: -50%; font-size: 0; left: -60%;
+      width: 20%; height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(30deg);
+      transition: all 0.5s;
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -60%; }
+      20% { left: 120%; }
+      100% { left: 120%; }
+    }
+  </style>
+  <title>Alianza Estratégica | Agua Mael</title>
+</head>
+<body class="antialiased">
+
+  <header class="bg-mael-dark text-white py-14 px-6 text-center relative overflow-hidden">
+    <div data-aos="fade-down">
+      <img src="logo.jpg" alt="Agua Mael" class="w-36 h-36 mx-auto rounded-full border-4 border-blue-400 mb-6 object-cover shadow-2xl">
+      <h1 class="text-3xl font-black uppercase tracking-tighter mb-2">AGUA MAEL: EL SALTO A SOCIOS</h1>
+      <p class="text-blue-200 text-sm italic opacity-80 max-w-xs mx-auto">"Dominando el mercado de Huaycán con inteligencia."</p>
     </div>
   </header>
 
-  <section class="py-12 px-5 max-w-4xl mx-auto">
-    <div class="bg-white p-8 rounded-3xl shadow-xl border-l-8 border-mael-accent mb-10">
-      <h2 class="text-2xl font-black text-mael-dark mb-4">La matemática del crecimiento</h2>
-      <p class="text-lg leading-relaxed mb-6">
-        Ustedes ya invierten S/. 60 semanales por nuestra base operativa. Pero para que el negocio explote de verdad, necesitamos activar el <strong>Plan de Socios Estratégicos</strong>.
-      </p>
-      <div class="bg-blue-50 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="text-center md:text-left">
-          <p class="text-gray-500 line-through text-sm">Plan Actual: S/. 60</p>
-          <p class="text-3xl font-black text-mael-dark">S/. 120 <span class="text-sm font-normal">semanales</span></p>
+  <section class="py-12 px-6 max-w-4xl mx-auto -mt-8 relative z-10">
+    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in">
+      <h2 class="text-xl font-black text-mael-dark mb-6 text-center uppercase tracking-wider">Plan de Madurez Comercial</h2>
+      
+      <div class="mb-10">
+        <div class="flex justify-between mb-2">
+          <span class="text-xs font-bold text-gray-400">Estado: Evolucionando</span>
+          <span class="text-xs font-black text-mael-dark">85%</span>
         </div>
-        <div class="hidden md:block text-mael-accent text-3xl font-bold">+</div>
-        <div class="bg-mael-accent text-white px-6 py-3 rounded-xl text-center">
-          <p class="text-xs uppercase font-bold tracking-widest">Inversión Extra</p>
-          <p class="text-2xl font-black">S/. 60</p>
+        <div class="progress-bar-container h-3">
+          <div class="progress-bar-fill" style="width: 85%;"></div>
         </div>
       </div>
-      <p class="mt-6 text-sm text-gray-600 text-center">
-        Por solo <strong>S/. 60 más a la semana</strong>, dejan de tener un "servicio" para tener un departamento completo a su mando.
-      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center border-t pt-8 border-gray-50">
+        <div class="text-center md:text-left">
+          <p class="text-sm text-gray-400 uppercase font-bold mb-1">Inversión actual</p>
+          <p class="text-4xl font-black text-gray-300">S/. 60</p>
+        </div>
+        <div class="text-center md:bg-blue-50 md:p-6 rounded-2xl">
+          <p class="text-sm text-blue-500 uppercase font-bold mb-1">Upgrade Socio</p>
+          <p class="text-5xl font-black text-mael-dark">S/. <span class="counter" data-target="120">0</span></p>
+          <p class="text-[10px] font-bold text-blue-600 mt-2">SOLO S/. 60 ADICIONALES</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="bg-gray-100 py-14 px-5">
+  <section class="bg-slate-50 py-16 px-6">
     <div class="max-w-5xl mx-auto">
-      <h3 class="text-center text-2xl font-black text-mael-dark uppercase mb-10 tracking-widest">¿Qué obtienen como SOCIOS?</h3>
+      <h3 class="text-center text-2xl font-black text-mael-dark uppercase mb-12 tracking-widest" data-aos="fade-up">
+        Arsenal de Socio Estratégico
+      </h3>
       
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-400">
-          <iconify-icon icon="mdi:palette-outline" class="text-4xl text-mael-accent mb-3"></iconify-icon>
-          <h4 class="font-bold text-lg mb-2">Diseño y Presencia Sin Límites</h4>
-          <p class="text-sm text-gray-600">Lo que necesiten para vender más: <strong>flyers para redes, portadas profesionales, catálogos de productos y diseño de marca continuo.</strong> Si hace falta para vender, se hace.</p>
+        <div class="benefit-card p-8 rounded-2xl shadow-sm" data-aos="fade-right">
+          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-palette text-2xl text-blue-600"></i>
+          </div>
+          <h4 class="font-black text-lg text-mael-dark mb-2">Diseño Sin Límites</h4>
+          <p class="text-sm text-gray-500 leading-relaxed">Flyers, portadas y etiquetas premium. <strong>Si el negocio necesita imagen para vender, Kane Pizarro lo crea.</strong></p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-400">
-          <iconify-icon icon="mdi:laptop-star" class="text-4xl text-mael-accent mb-3"></iconify-icon>
-          <h4 class="font-bold text-lg mb-2">Estructura Digital Avanzada</h4>
-          <p class="text-sm text-gray-600">Creamos su <strong>página web</strong>, embudos de venta para captar bodegas y un <strong>sistema de gestión</strong> para que sepan exactamente quién les compra y cuándo.</p>
+        <div class="benefit-card p-8 rounded-2xl shadow-sm" data-aos="fade-left">
+          <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-laptop-code text-2xl text-indigo-600"></i>
+          </div>
+          <h4 class="font-black text-lg text-mael-dark mb-2">Web & Gestión</h4>
+          <p class="text-sm text-gray-500 leading-relaxed">Tu propia <strong>página web y embudo</strong>. Además de un sistema para controlar quién compra y cuándo.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-400">
-          <iconify-icon icon="mdi:account-group" class="text-4xl text-mael-accent mb-3"></iconify-icon>
-          <h4 class="font-bold text-lg mb-2">Pelotón de Ventas</h4>
-          <p class="text-sm text-gray-600">Acceso a nuestro equipo entrenado que sale a buscar clientes por comisión. Si ellos venden, Agua Mael crece. <strong>Cero riesgo para ustedes.</strong></p>
+        <div class="benefit-card p-8 rounded-2xl shadow-sm" data-aos="fade-right">
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-users-rays text-2xl text-green-600"></i>
+          </div>
+          <h4 class="font-black text-lg text-mael-dark mb-2">Pelotón de Ventas</h4>
+          <p class="text-sm text-gray-500 leading-relaxed">Acceso a mi equipo que sale a vender Agua Mael por comisión. <strong>Cero riesgo, todo ganancia.</strong></p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-400">
-          <iconify-icon icon="mdi:handshake-outline" class="text-4xl text-mael-accent mb-3"></iconify-icon>
-          <h4 class="font-bold text-lg mb-2">Red de Contactos Estratégicos</h4>
-          <p class="text-sm text-gray-600">¿Necesitan envases más baratos? ¿Publicidad a bajo costo? Ponemos a su disposición nuestra <strong>red de proveedores y contactos</strong> para reducir sus costos operativos.</p>
+        <div class="benefit-card p-8 rounded-2xl shadow-sm" data-aos="fade-left">
+          <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa-solid fa-handshake-angle text-2xl text-amber-600"></i>
+          </div>
+          <h4 class="font-black text-lg text-mael-dark mb-2">Contactos de Oro</h4>
+          <p class="text-sm text-gray-500 leading-relaxed">Conseguimos proveedores más baratos. <strong>Ahorrar en insumos es ganar dinero directamente.</strong></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 px-5 text-center">
-    <div class="max-w-3xl mx-auto">
-      <iconify-icon icon="mdi:trending-up" class="text-6xl text-mael-dark mb-4"></iconify-icon>
-      <h3 class="text-2xl font-black text-mael-dark uppercase mb-4">El Futuro es la Alianza</h3>
-      <p class="text-gray-600 mb-8 leading-relaxed">
-        En la Fase 3 no hablamos de precios, hablamos de <strong>resultados</strong>. Una vez que el sistema esté rodando y las ventas suban, nuestro compromiso es seguir optimizando cada sol invertido para que Agua Mael sea el referente indiscutible en toda la zona. <strong>Si ustedes crecen, nosotros también.</strong>
+  <section class="py-20 px-6 text-center">
+    <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+      <i class="fa-solid fa-chart-line text-6xl text-mael-dark mb-6"></i>
+      <h3 class="text-3xl font-black text-mael-dark uppercase mb-4 tracking-tighter">Tu Crecimiento es mi Negocio</h3>
+      <p class="text-gray-500 mb-10 text-lg leading-relaxed">
+        En la Fase 3 no hay límites. Una vez que el sistema ruede, mi único objetivo es que <strong>Agua Mael sea el nombre que todo Huaycán piense al tener sed.</strong>
       </p>
       
-      <div class="bg-mael-dark text-white p-10 rounded-3xl shadow-glow relative overflow-hidden">
-        <h4 class="text-2xl font-bold mb-6">¿Damos el siguiente paso hoy?</h4>
-        <p class="mb-8 text-blue-200">Activa el plan de Socio Estratégico y pongamos a trabajar a todo el equipo por el éxito de Agua Mael.</p>
-        
-        <a href="https://wa.me/51966002733" class="block w-full md:w-auto md:inline-block bg-mael-accent text-white font-black py-4 px-10 rounded-xl hover:scale-105 transition-transform shadow-lg uppercase tracking-wider text-sm">
-          Aceptar Alianza Estratégica
+      <div class="bg-mael-dark text-white p-10 rounded-[40px] shadow-2xl btn-shine">
+        <h4 class="text-2xl font-bold mb-6 italic">¿Activamos el nivel SOCIO hoy?</h4>
+        <a href="https://wa.me/51966002733" class="inline-block bg-blue-500 text-white font-black py-4 px-10 rounded-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm shadow-lg">
+          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Iniciar Alianza Estratégica
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="py-10 text-center text-gray-400 text-xs">
-    &copy; 2026 - Alianza Estratégica | Construyendo el líder de Huaycán.
+  <footer class="py-12 border-t border-gray-100 text-center">
+    <p class="font-black text-mael-dark tracking-[0.4em] uppercase text-xs mb-2">Kane Pizarro</p>
+    <p class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">Estrategia • Inteligencia • Resultados | Huaycán 2026</p>
   </footer>
 
-</body>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
 
+    // Animación de contador para el precio
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const inc = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    };
+
+    // Iniciar contador cuando sea visible
+    window.addEventListener('scroll', function counterScroll() {
+        animateCounters();
+        window.removeEventListener('scroll', counterScroll);
+    });
+  </script>
+</body>
 </html>
