@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tu Armadura Digital - Servicios de marketing digital por Kane Pizarro. Transforma tu emprendimiento en una marca confiable.">
+  <meta name="keywords" content="marketing digital, diseño web, publicidad, redes sociales, Kane Pizarro">
+  <meta name="author" content="Kane Pizarro">
+  <link rel="shortcut icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-negro: #212223;
+      --color-crema: #E3D0B1; /* Fondo principal */
+      --color-bordo: #490F1F; /* Color Principal */
+      --color-dorado: #C2A05A; /* Color Secundario */
+      --color-verde: #233738; /* Color de Acento/Navegación */
+      
+      /* --- Tipografía Minimalista --- */
+      --font-lg: clamp(1.75rem, 4vw, 3rem); /* Responsive */
+      --font-md: clamp(0.875rem, 2vw, 1rem); /* Responsive */
+      --font-sm: clamp(0.75rem, 1.5vw, 0.875rem); /* Responsive */
+    }
+    
+    html { 
+      scroll-behavior: smooth; 
+    }
+    
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: var(--color-crema); 
+      color: var(--color-negro);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-size: var(--font-md); /* Tamaño de fuente base */
+    }
+
+    /* --- Títulos y Texto --- */
+    .text-lg-responsive {
+      font-size: var(--font-lg);
+    }
+    .text-md-responsive {
+      font-size: var(--font-md);
+    }
+    .text-sm-responsive {
+      font-size: var(--font-sm);
+    }
+
+    /* --- Definición de Botones (Nueva Jerarquía) --- */
+    
+    /* Botón Principal (Comprar) - BORDÓ */
+    .btn-cta {
+      background: linear-gradient(135deg, var(--color-bordo), #2D0F1F);
+      color: var(--color-crema);
+      border: none;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(73, 15, 31, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: -1;
+    }
+    .btn-cta:hover::before {
+      transform: translateX(0);
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(73, 15, 31, 0.4);
+    }
+    
+    /* Botón Secundario (Navegar) - DORADO */
+    .btn-secondary { 
+      background: linear-gradient(135deg, var(--color-dorado), #A08045);
+      color: var(--color-negro); 
+      border: none;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(194, 160, 90, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: -1;
+    }
+    .btn-secondary:hover::before {
+      transform: translateX(0);
+    }
+    .btn-secondary:hover { 
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(194, 160, 90, 0.4);
+    }
+    
+    /* Botón de Navegación/Upgrade - VERDE */
+    .btn-upgrade {
+      background: linear-gradient(135deg, var(--color-verde), #1A2829);
+      color: var(--color-crema);
+      border: none;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(35, 55, 56, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-upgrade::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: -1;
+    }
+    .btn-upgrade:hover::before {
+      transform: translateX(0);
+    }
+    .btn-upgrade:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(35, 55, 56, 0.4);
+    }
+    
+    /* --- Botones Flotantes --- */
+    .whatsapp-float { 
+      position: fixed; bottom: 30px; right: 30px; 
+      background-color: var(--color-negro); 
+      color: white; 
+      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+      font-size: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 90; transition: all 0.3s ease; 
+      animation: pulse-float 2s infinite; 
+    }
+    .whatsapp-float:hover { 
+      transform: scale(1.1); 
+      animation: none;
+      background-color: #25D366;
+    }
+    
+    .facebook-float { 
+      position: fixed; bottom: 110px; right: 30px; 
+      background-color: var(--color-negro); 
+      color: white; 
+      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+      font-size: 1.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 90; transition: all 0.3s ease; 
+      animation: pulse-float 2s infinite 0.5s;
+    }
+    .facebook-float:hover { 
+      transform: scale(1.1); 
+      animation: none;
+      background-color: #1877F2;
+    }
+
+    @keyframes pulse-float { 
+      0% { box-shadow: 0 0 0 0 rgba(33, 34, 35, 0.7); transform: scale(1); } 
+      70% { box-shadow: 0 0 0 15px rgba(33, 34, 35, 0); transform: scale(1.05); } 
+      100% { box-shadow: 0 0 0 0 rgba(33, 34, 35, 0); transform: scale(1); } 
+    }
+
+    /* --- Estilos de Tarjetas de Precios --- */
+    .plan-card {
+      background-color: white; 
+      border: 2px solid var(--color-bordo); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--color-bordo), var(--color-dorado), var(--color-verde));
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .plan-card:hover::before {
+      transform: translateX(0);
+    }
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .plan-card-body {
+      flex-grow: 1; 
+    }
+    .plan-highlight {
+      border: 3px solid var(--color-dorado);
+      box-shadow: 0 10px 40px -5px rgba(194, 160, 90, 0.3);
+      transform: scale(1.03); 
+    }
+    .badge-recommend {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--color-dorado), #A08045);
+      color: var(--color-negro);
+      font-size: var(--font-sm);
+      font-weight: bold;
+      padding: 6px 15px;
+      border-radius: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transform: rotate(2deg);
+      z-index: 10;
+    }
+    
+    /* --- Estilos de Explicación de Beneficios --- */
+    .benefit-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-size: var(--font-md);
+    }
+    .benefit-item i.fa-info-circle {
+      color: var(--color-dorado);
+      opacity: 0.6;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .benefit-item i.fa-info-circle:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    .benefit-item i.fa-info-circle.rotated {
+      transform: rotate(180deg);
+    }
+    .benefit-explanation {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, padding 0.5s ease-in-out;
+      background-color: rgba(35, 55, 56, 0.05); 
+      border-left: 3px solid var(--color-verde);
+      border-radius: 0.25rem;
+      font-size: var(--font-sm);
+      padding: 0 1rem;
+      margin-top: 0.25rem;
+      color: var(--color-negro);
+    }
+    .benefit-explanation.show {
+      max-height: 200px; 
+      opacity: 1;
+      padding: 0.75rem 1rem;
+    }
+
+    /* --- Temporizador --- */
+    .countdown-container {
+      background: linear-gradient(135deg, var(--color-bordo) 0%, #2D0F1F 100%);
+      border-radius: 10px; padding: 20px; margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(73, 15, 31, 0.2); 
+      color: var(--color-crema);
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      opacity: 0.3;
+      animation: shimmer 3s infinite linear;
+    }
+    @keyframes shimmer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .countdown-box {
+      background-color: rgba(255,255,255,0.1); 
+      border-radius: 8px;
+      padding: 10px; 
+      text-align: center; 
+      min-width: 70px;
+      backdrop-filter: blur(5px);
+    }
+    .countdown-number { 
+      font-size: 2rem; 
+      font-weight: bold; 
+      color: var(--color-dorado);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .countdown-label { 
+      font-size: 0.8rem; 
+      color: var(--color-crema); 
+      text-transform: uppercase; 
+    }
+    
+    .countdown-box-modal {
+      background-color: var(--color-bordo);
+      border-radius: 8px;
+      padding: 10px; 
+      text-align: center; 
+      min-width: 60px;
+      backdrop-filter: blur(5px);
+    }
+    .countdown-number-modal { 
+      font-size: 1.5rem; 
+      font-weight: bold; 
+      color: var(--color-dorado);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .countdown-label-modal { 
+      font-size: 0.7rem; 
+      color: var(--color-crema); 
+      text-transform: uppercase; 
+    }
+
+    /* --- Estímulos de Urgencia --- */
+    .scarcity-badge {
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      background-color: var(--color-bordo);
+      color: var(--color-crema);
+      font-size: var(--font-sm);
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      animation: shake 2.5s infinite;
+      z-index: 10;
+      transform: rotate(-5deg);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .fomo-indicator {
+      display: inline-flex;
+      align-items: center;
+      background-color: rgba(255,255,255,0.1);
+      color: var(--color-crema);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: var(--font-sm);
+      font-weight: 600;
+      margin-top: 15px;
+      backdrop-filter: blur(5px);
+    }
+    .fomo-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-dorado);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse-dot 1.5s infinite;
+    }
+    
+    /* --- Animaciones --- */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse { /* Pulso BORDÓ (Principal) */
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(73, 15, 31, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(73, 15, 31, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(73, 15, 31, 0); }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes shake {
+      0%, 100% { transform: rotate(-5deg) translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg) translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: rotate(-5deg) translateX(5px); }
+    }
+    
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-pulse-btn { animation: pulse 2s infinite; } /* Ahora usa el pulso Bordó */
+    
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    
+    /* --- Partículas --- */
+    .particle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+    }
+    @keyframes particle-animation {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
+      }
+    }
+    
+    /* --- Footer --- */
+    footer {
+      background-color: var(--color-negro);
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-dorado), var(--color-bordo), var(--color-verde));
+    }
+        
+    /* --- Estilos de Embudo por Pasos --- */
+    .funnel-step {
+      display: none; 
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .funnel-step.active {
+      display: block; 
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .step-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(194, 160, 90, 0.3);
+      margin: 0 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .step-dot.active {
+      background-color: var(--color-dorado);
+      transform: scale(1.3);
+    }
+    .step-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      gap: 0.5rem; /* Espacio entre botones en móvil */
+    }
+    .comparison-highlight {
+      background-color: rgba(35, 55, 56, 0.05); /* Verde claro */
+      border-left: 4px solid var(--color-verde);
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      font-size: var(--font-sm);
+    }
+    
+    /* --- Estilos de FAQ (Preguntas Frecuentes) --- */
+    .faq-item {
+      background-color: white;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .faq-question {
+      padding: 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--color-negro);
+      font-size: var(--font-md);
+    }
+    .faq-question i {
+      transition: transform 0.3s ease;
+      color: var(--color-bordo);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+      padding: 0 1.25rem;
+      color: var(--color-negro);
+      line-height: 1.7;
+      font-size: var(--font-sm);
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      opacity: 1;
+      padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    /* --- Mejoras de accesibilidad --- */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    /* --- Mejoras de rendimiento --- */
+    .lazy-load {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .lazy-load.loaded {
+      opacity: 1;
+    }
+    
+    /* --- Mejoras de diseño responsive --- */
+    @media (max-width: 768px) {
+      .step-navigation {
+        flex-direction: column;
+      }
+      .step-navigation button, 
+      .step-navigation a {
+        width: 100%;
+      }
+      .whatsapp-float, 
+      .facebook-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      .facebook-float {
+        bottom: 90px;
+      }
+    }
+    
+    /* --- Animación de entrada para secciones --- */
+    .section-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <title>Tu Armadura Digital | Kane Pizarro</title>
+</head>
+<body class="overflow-x-hidden">
+
+  <header class="py-6 section-animate">
+    <div class="container mx-auto px-6 text-center">
+      <img src="logo.png" alt="Logo Kane Pizarro" class="h-24 w-24 mx-auto animate-fadeInUp rounded-full object-cover lazy-load">
+    </div>
+  </header>
+
+  <section class="py-16 text-center section-animate">
+    <div class="container mx-auto px-6">
+      
+      <h1 id="ab-h1" class="text-lg-responsive font-black uppercase animate-fadeInUp text-gray-800">
+        </h1>
+      
+      <h2 id="ab-h2" class="text-lg-responsive font-black uppercase animate-fadeInUp mt-4" style="color: var(--color-bordo);">
+        </h2>
+      
+      <p class="text-md-responsive mt-6 max-w-3xl mx-auto text-gray-800 font-bold animate-fadeInUp" style="animation-delay: 0.4s;">
+        Yo te doy la armadura visual. Tú te dedicas a cerrar tratos.
+      </p>
+    </div>
+  </section>
+
+  <section id="urgencia" class="py-12 section-animate">
+    <div class="container mx-auto px-6">
+      <div id="countdown-timer" class="max-w-2xl mx-auto">
+        <div class="countdown-container">
+          <h3 class="font-bold text-center mb-4 text-md-responsive">¡OFERTA EXCLUSIVA MAGNATE!</h3>
+          <p class="text-center mb-4 text-sm-responsive">Tu tiempo vale. Asegura tu precio especial.</p>
+          <div class="flex justify-center space-x-2 md:space-x-4">
+            <div class="countdown-box">
+              <div class="countdown-number" id="hours">24</div>
+              <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-number" id="minutes">00</div>
+              <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-box">
+              <div class="countdown-number" id="seconds">00</div>
+              <div class="countdown-label">Segundos</div>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <div class="fomo-indicator">
+              <div class="fomo-dot"></div>
+              <span class="text-sm-responsive">¡Solo quedan <span id="remainingCoupons">5</span> cupones!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="funnel" class="py-20 section-animate">
+    <div class="container mx-auto px-6 max-w-4xl"> 
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-lg-responsive font-black uppercase text-gray-800">Elige tu Armadura Visual</h2>
+        <p class="text-md-responsive text-gray-600 mt-2">Elige tu armadura. Empieza aquí.</p>
+      </div>
+      
+      <div class="step-indicator">
+        <div class="step-dot active" data-step="1" onclick="showStep(1)" aria-label="Ir al paso 1"></div>
+        <div class="step-dot" data-step="2" onclick="showStep(2)" aria-label="Ir al paso 2"></div>
+        <div class="step-dot" data-step="3" onclick="showStep(3)" aria-label="Ir al paso 3"></div>
+      </div>
+      
+      <div id="funnel-container">
+        <div class="funnel-step active" id="step1">
+          <div class="plan-card fade-in">
+            <div class="scarcity-badge">¡SOLO 3 CUPOS!</div>
+            <div class="plan-card-body">
+              <h3 class="font-bold text-center text-lg-responsive uppercase" style="color: var(--color-bordo);">NIVEL 1: DESPEGUE</h3>
+              <p class="text-md-responsive text-center text-gray-500 mt-1">Empieza a delegar.</p>
+              
+              <p class="text-5xl font-black text-center my-4 text-gray-800">
+                <span id="despegue-precio-normal" class="line-through text-gray-400 text-3xl mr-2">S/.240</span>
+                <span id="despegue-precio">S/.150</span>
+                <span class="text-2xl">/mes</span>
+              </p>
+              
+              <ul class="text-md-responsive text-gray-700 space-y-2 mt-6">
+                <li class="benefit-item">
+                  <span><i class="fa fa-check-circle text-[var(--color-bordo)] mr-2"></i><strong class="font-bold">2 campañas</strong> de marketing</span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Es el plan de ataque. Te digo qué publicar, a quién, y cuándo para conseguir clientes. (Límite: 2 por mes).</p>
+                </div>
+                <li class="benefit-item">
+                  <span><i class="fa fa-check-circle text-[var(--color-bordo)] mr-2"></i>Creación de redes sociales</span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Si no las tienes, las creo. Si las tienes, las optimizo (foto, portada, biografía) para que se vean profesionales y confiables.</p>
+                </div>
+                <li class="benefit-item">
+                  <span><i class="fa fa-check-circle text-[var(--color-bordo)] mr-2"></i><strong class="font-bold">Página web gratis</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Una web de una sola sección (Landing Page) para que la gente te encuentre y te contacte. Profesional y directa al grano.</p>
+                </div>
+                <li class="benefit-item" id="despegue-ads">
+                  <span><i class="fa fa-check-circle text-[var(--color-bordo)] mr-2"></i>Publicidad para <strong class="font-bold">1 red social</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Pagar a Facebook o Instagram para mostrar tus anuncios a la gente correcta. Con la oferta, eliges 1 red para empezar.</p>
+                </div>
+              </ul>
+            </div>
+            <div class="step-navigation">
+              <a id="ab-link-1" href="#" target="_blank" class="btn-cta py-3 px-4 rounded-md inline-block text-center text-md-responsive flex-1">
+                Empezar con Despegue
+              </a>
+              <button class="btn-upgrade py-3 px-4 rounded-md inline-block text-center text-md-responsive flex-1" onclick="showStep(2)">
+                Ver Plan Superior <i class="fas fa-arrow-up ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="funnel-step" id="step2">
+          <div class="plan-card plan-highlight fade-in">
+            <div class="badge-recommend">
+              <i class="fa fa-star mr-1"></i> RECOMENDADO
+            </div>
+            <div class="plan-card-body">
+              <h3 class="font-bold text-center text-lg-responsive uppercase" style="color: var(--color-dorado);">NIVEL 2: ÉLITE</h3>
+              <p class="text-md-responsive text-center text-gray-600 mt-1">La decisión inteligente.</p>
+              <p class="text-5xl font-black text-center my-4 text-gray-800">
+                <span id="elite-precio-normal" class="line-through text-gray-400 text-3xl mr-2">S/.360</span>
+                <span id="elite-precio">S/.250</span>
+                <span class="text-2xl">/mes</span>
+              </p>
+              
+              <div class="comparison-highlight">
+                <p class="font-bold text-gray-800 text-md-responsive"><i class="fas fa-arrow-up text-[var(--color-verde)] mr-2"></i>Mejora del Plan Despegue:</p>
+                <ul class="mt-2 space-y-1 text-gray-700">
+                  <li><i class="fa fa-check text-xs text-[var(--color-verde)] mr-1"></i> Campañas <strong class="text-gray-800 font-bold">SIN LÍMITE</strong> (en lugar de solo 2)</li>
+                  <li><i class="fa fa-check text-xs text-[var(--color-verde)] mr-1"></i> Acceso a <strong class="text-gray-800 font-bold">Apps web</strong> (Facturación, etc.)</li>
+                </ul>
+              </div>
+              
+              <ul class="text-md-responsive text-gray-700 space-y-2 mt-6">
+                <li class="benefit-item">
+                  <span><i class="fa fa-check-circle text-[var(--color-dorado)] mr-2"></i><strong class="font-bold">Todo lo del plan "Despegue"</strong></span>
+                </li>
+                <li class="benefit-item">
+                  <span><i class="fa fa-plus-circle text-[var(--color-verde)] mr-2"></i>Campañas <strong class="text-gray-800 font-bold">SIN LÍMITE</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>No nos frenamos. Creamos todas las estrategias y planes de ataque necesarios para crecer tu negocio ese mes. Sin topes.</p>
+                </div>
+                <li class="benefit-item">
+                  <span><i class="fa fa-plus-circle text-[var(--color-verde)] mr-2"></i>Acceso a <strong class="text-gray-800 font-bold">Apps web</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Herramientas a medida para ti: un sistema simple de facturas, un control de inventario, etc. Soluciones reales a tus problemas de gestión.</p>
+                </div>
+                <li class="benefit-item" id="elite-ads">
+                  <span><i class="fa fa-check-circle text-[var(--color-dorado)] mr-2"></i>Publicidad para <strong class="font-bold">1 red social</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Pagar a Facebook o Instagram para mostrar tus anuncios a la gente correcta. Con la oferta, eliges 1 red para empezar.</p>
+                </div>
+              </ul>
+            </div>
+            <div class="step-navigation">
+              <button class="btn-secondary py-3 px-4 rounded-md inline-block text-center text-sm-responsive" onclick="showStep(1)">
+                <i class="fas fa-arrow-left mr-1"></i> Volver
+              </button>
+              <a id="ab-link-2" href="#" target="_blank" class="btn-cta py-3 px-4 rounded-md inline-block text-center text-md-responsive animate-pulse-btn flex-grow">
+                QUIERO EL PLAN ÉLITE
+              </a>
+              <button class="btn-upgrade py-3 px-4 rounded-md inline-block text-center text-sm-responsive" onclick="showStep(3)">
+                Ver Máximo <i class="fas fa-arrow-up ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="funnel-step" id="step3">
+          <div class="plan-card fade-in">
+            <div class="plan-card-body">
+              <h3 class="font-bold text-center text-lg-responsive uppercase" style="color: var(--color-bordo);">NIVEL 3: FULL</h3>
+              <p class="text-md-responsive text-center text-gray-500 mt-1">La solución definitiva.</p>
+              <p class="text-5xl font-black text-center my-4 text-gray-800">
+                <span id="full-precio-normal" class="line-through text-gray-400 text-3xl mr-2">S/.420</span>
+                <span id="full-precio">S/.400</span>
+                <span class="text-2xl">/mes</span>
+              </p>
+              
+              <div class="comparison-highlight">
+                <p class="font-bold text-gray-800 text-md-responsive"><i class="fas fa-arrow-up text-[var(--color-verde)] mr-2"></i>Mejora del Plan Élite:</p>
+                <ul class="mt-2 space-y-1 text-gray-700">
+                  <li><i class="fa fa-check text-xs text-[var(--color-verde)] mr-1"></i> Publicidad en <strong class="text-gray-800 font-bold">TODAS las redes</strong></li>
+                  <li><i class="fa fa-check text-xs text-[var(--color-verde)] mr-1"></i> Creación de <strong class="text-gray-800 font-bold">videos</strong> y contenido premium.</li>
+                  <li><i class="fa fa-check text-xs text-[var(--color-verde)] mr-1"></i> Estrategia y reportes. Es el "Modo Dios".</li>
+                </ul>
+              </div>
+              
+              <ul class="text-md-responsive text-gray-700 space-y-2 mt-6">
+                <li class="benefit-item">
+                  <span><i class="fa fa-star text-[var(--color-bordo)] mr-2"></i><strong class="text-gray-800 font-bold">NO HAY LÍMITES</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Exactamente eso. Usamos todo el arsenal: diseño, video, webs, apps, publicidad. Es el servicio "olvídate de todo".</p>
+                </div>
+                <li class="benefit-item">
+                  <span><i class="fa fa-star text-[var(--color-bordo)] mr-2"></i>Todo lo necesario para crecer</span>
+                </li>
+                <li class="benefit-item">
+                  <span><i class="fa fa-star text-[var(--color-bordo)] mr-2"></i>Campañas, diseños, videos, etc.</span>
+                </li>
+                <li class="benefit-item">
+                  <span><i class="fa fa-star text-[var(--color-bordo)] mr-2"></i>Publicidad <strong class="font-bold">TODAS las redes</strong></span>
+                  <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+                </li>
+                <div class="benefit-explanation">
+                  <p>Aquí no hay oferta. Este plan *siempre* incluye publicidad en todas las plataformas relevantes (Facebook, Instagram, Google, etc).</p>
+                </div>
+              </ul>
+            </div>
+            <div class="step-navigation">
+              <button class="btn-secondary py-3 px-6 rounded-md inline-block text-center text-md-responsive" onclick="showStep(2)">
+                <i class="fas fa-arrow-left mr-2"></i> Volver al Élite
+              </button>
+              <a id="ab-link-3" href="#" target="_blank" class="btn-cta py-3 px-6 rounded-md inline-block text-center text-md-responsive">
+                CONTRATAR FULL POWER
+              </a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 bg-white/60 section-animate">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="text-lg-responsive font-black uppercase text-gray-800">Tus Dudas, Resueltas</h2>
+        <p class="text-md-responsive text-gray-600 mt-2">Hablemos con la verdad. Aquí no hay letras pequeñas.</p>
+      </div>
+      
+      <div class="space-y-4 fade-in">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Tengo que firmar un contrato o hay permanencia?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No. Odio las trampas y las permanencias forzosas. Mi servicio se basa en la confianza. Pagas por el mes y, si no estás contento, al siguiente mes simplemente no renuevas. Así de simple. Mi trabajo es darte resultados para que *quieras* quedarte, no para que te *obliguen*.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿La "página web gratis" es realmente mía?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Es un beneficio mientras estés en el plan. Yo cubro el costo del servidor (hosting) y el dominio (tu .com) mientras trabajemos juntos. Si algún día decides irte, puedes comprar el diseño y los archivos por un pago único y te lo llevas. Es justo para ambos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Qué significa "campañas sin límite" (Plan Élite)?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Significa que no te cobro "por campaña". Si este mes necesitamos lanzar una campaña para el Día de la Madre, otra para liquidar stock y una tercera para captar clientes nuevos, lo hacemos. No te diré "eso cuesta extra". Mi objetivo es que vendas, no limitarte.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿En cuánto tiempo veré resultados?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Te seré 100% honesto: el que te promete hacerte millonario en 7 días, te está mintiendo. La construcción de una marca toma tiempo. Verás un cambio *visual* profesional en la primera semana. Empezarás a ver *interacción* y *consultas* (leads) en las primeras 2 a 4 semanas. Las *ventas* constantes son el resultado de la disciplina y la estrategia a mediano plazo. Desconfía de las soluciones mágicas.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <a id="ab-link-whatsapp" href="#" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <a href="https://www.facebook.com/kane.pizarro.marketing" target="_blank" class="facebook-float" aria-label="Visitar perfil de Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <footer class="py-16 mt-16 fade-in section-animate">
+    <div class="container mx-auto px-6 text-center border-t border-gray-700 pt-12">
+        <h3 class="text-lg-responsive font-bold" style="color: var(--color-dorado);">LA CALIDAD NO ES UN LUJO.</h3>
+        <p class="text-md-responsive mt-2 text-[var(--color-crema)] opacity-90 font-light">Es tu derecho.</p>
+        <p class="mt-8 text-md-responsive text-[var(--color-crema)] opacity-80">Ya viste las opciones. Es hora de elegir tu armadura visual.</p>
+        <p class="border-t border-gray-700 mt-12 pt-8 text-sm-responsive text-[var(--color-crema)] opacity-60">&copy; 2025 Kane Pizarro. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div id="exit-intent-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-6 z-[100]" style="display: none;" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+    <div class="bg-[var(--color-crema)] p-8 rounded-lg shadow-2xl max-w-lg w-full text-center relative border-4 border-[var(--color-dorado)] animate-fadeInUp">
+      <button id="close-modal" class="absolute top-4 right-4 text-[var(--color-negro)] hover:text-[var(--color-bordo)] text-2xl" aria-label="Cerrar modal">
+        <i class="fas fa-times-circle"></i>
+      </button>
+      
+      <h2 id="modal-title" class="text-lg-responsive font-black uppercase text-[var(--color-bordo)]">¡ESPERA!</h2>
+      <p id="ab-modal-p" class="text-md-responsive text-gray-700 mt-2">¿Seguro que quieres irte sin tu armadura?</p>
+      
+      <div class="my-6">
+        <p class="text-md-responsive">Tu oferta exclusiva del <strong class="font-bold text-[var(--color-bordo)]">Plan Élite</strong> está por expirar.</p>
+        <div class="flex justify-center space-x-2 mt-4 scale-90">
+          <div class="countdown-box-modal">
+            <div class="countdown-number-modal" id="modal-hours">00</div>
+            <div class="countdown-label-modal">Horas</div>
+          </div>
+          <div class="countdown-box-modal">
+            <div class="countdown-number-modal" id="modal-minutes">00</div>
+            <div class="countdown-label-modal">Minutos</div>
+          </div>
+          <div class="countdown-box-modal">
+            <div class="countdown-number-modal" id="modal-seconds">00</div>
+            <div class="countdown-label-modal">Segundos</div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-md-responsive font-bold">Asegura el Plan Recomendado por <span class="text-2xl">S/.250</span> antes de que vuelva a <span class="line-through">S/.360</span>.</p>
+      
+      <a id="ab-link-modal" href="#" target="_blank" class="mt-6 btn-cta py-4 px-8 rounded-md inline-block text-md-responsive animate-pulse-btn w-full">
+        QUIERO EL PLAN ÉLITE AHORA
+      </a>
+    </div>
+  </div>
+
+  <script>
+    
+    // --- Motor de A/B Testing ---
+    const abVersions = [
+      {
+        key: "V1_ARMADURA",
+        h1: "Tu Negocio Necesita una Armadura Visual",
+        h2: "Deja de parecer amateur. Es hora de competir.",
+        modal_p: "¿Seguro que quieres irte sin tu armadura?"
+      },
+      {
+        key: "V2_TIEMPO",
+        h1: "¿Cansado de Hacerlo Todo Tú Mismo?",
+        h2: "El tiempo que pasas en Canva es dinero que no ganas.",
+        modal_p: "¿Vas a seguir perdiendo tiempo valioso?"
+      },
+      {
+        key: "V3_CONFIANZA",
+        h1: "Transforma tu Emprendimiento en una Marca Confiable",
+        h2: "La gente no le compra a quien no se ve serio.",
+        modal_p: "¿Dejarás pasar la oportunidad de verte profesional?"
+      }
+    ];
+
+    function applyVersion(version) {
+      const baseWhatsappUrl = "https://wa.me/51966002733";
+      
+      // Aplicar textos
+      document.getElementById('ab-h1').textContent = version.h1;
+      document.getElementById('ab-h2').textContent = version.h2;
+      document.getElementById('ab-modal-p').textContent = version.modal_p;
+
+      // Aplicar claves a los links de WhatsApp
+      const links = [
+        { id: 'ab-link-1', text: `Hola Kane, (Test: ${version.key}) Quiero el Plan Despegue (S/.150) ahora.` },
+        { id: 'ab-link-2', text: `Hola Kane, (Test: ${version.key}) lo pensé bien. Quiero el Plan Élite (S/.250) ahora.` },
+        { id: 'ab-link-3', text: `Hola Kane, (Test: ${version.key}) no quiero límites. Dame el Plan Full Power (S/.400) ahora.` },
+        { id: 'ab-link-modal', text: `Hola Kane, (Test: ${version.key}) casi me voy. Quiero el Plan Élite (S/.250) ahora.` },
+        { id: 'ab-link-whatsapp', text: `Hola Kane, (Test: ${version.key}) vi tu página y quiero consultar algo sobre los planes Magnate.` }
+      ];
+
+      links.forEach(link => {
+        const el = document.getElementById(link.id);
+        if (el) {
+          el.href = `${baseWhatsappUrl}?text=${encodeURIComponent(link.text)}`;
+        }
+      });
+    }
+    
+    // --- SCRIPT PARA EXPLICACIÓN DE BENEFICIOS ---
+    function toggleBenefit(icon) {
+      const explanation = icon.closest('.benefit-item').nextElementSibling;
+      if (explanation && explanation.classList.contains('benefit-explanation')) {
+        explanation.classList.toggle('show');
+        icon.classList.toggle('rotated');
+      }
+    }
+    
+    // --- SCRIPT PARA EL EMBUDO DE PASOS ---
+    function showStep(stepNumber) {
+      document.querySelectorAll('.funnel-step').forEach(step => {
+        step.classList.remove('active');
+      });
+      const activeStep = document.getElementById(`step${stepNumber}`);
+      if (activeStep) {
+        activeStep.classList.add('active');
+      }
+      
+      document.querySelectorAll('.step-dot').forEach((dot, index) => {
+        if (index + 1 === stepNumber) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      const funnelElement = document.getElementById('funnel');
+      if (funnelElement) {
+        funnelElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    // --- SCRIPT PARA EL ACORDEÓN DE FAQ ---
+    function toggleFAQ(element) {
+      const item = element.closest('.faq-item');
+      if (item) {
+        item.classList.toggle('active');
+      }
+    }
+    
+    // --- SISTEMA DE TEMPORIZADOR ---
+    function initializeCountdown() {
+      const offerKey = 'kane-pizarro-magnate-offer-end';
+      let offerEndTime = localStorage.getItem(offerKey);
+      
+      if (!offerEndTime) {
+        offerEndTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 horas
+        localStorage.setItem(offerKey, offerEndTime);
+      } else {
+        offerEndTime = parseInt(offerEndTime);
+      }
+      
+      const countdownTimer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = offerEndTime - now;
+        
+        if (distance < 0) {
+          clearInterval(countdownTimer);
+          const timerElement = document.getElementById('countdown-timer');
+          if (timerElement) {
+            timerElement.innerHTML = `
+              <div class="bg-red-100 border border-red-200 text-red-700 px-4 py-3 rounded-lg" role="alert">
+                <h3 class="font-bold mb-2 text-md-responsive">¡La oferta ha expirado!</h3>
+                <p class="text-sm-responsive">Los precios especiales terminaron. Ahora todos los planes incluyen publicidad en TODAS las redes al precio normal.</p>
+              </div>
+            `;
+          }
+          
+          const updatePrice = (id, price) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = price;
+          };
+          const updateHTML = (id, html) => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = html;
+          };
+          const hideEl = (id) => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+          };
+          
+          updatePrice('despegue-precio', 'S/.240');
+          updatePrice('elite-precio', 'S/.360');
+          updatePrice('full-precio', 'S/.420'); 
+          
+          const allAdsHTML = `
+            <span><i class="fa fa-check-circle text-[var(--color-dorado)] mr-2"></i>Publicidad <strong class="font-bold">TODAS las redes</strong></span>
+            <i class="fa fa-info-circle" onclick="toggleBenefit(this)" aria-label="Mostrar información"></i>
+          `;
+          updateHTML('despegue-ads', allAdsHTML);
+          updateHTML('elite-ads', allAdsHTML);
+          
+          hideEl('despegue-precio-normal');
+          hideEl('elite-precio-normal');
+          hideEl('full-precio-normal');
+          
+          return;
+        }
+        
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        const updateText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text;
+        };
+        
+        updateText('hours', hours.toString().padStart(2, '0'));
+        updateText('minutes', minutes.toString().padStart(2, '0'));
+        updateText('seconds', seconds.toString().padStart(2, '0'));
+
+        updateText('modal-hours', hours.toString().padStart(2, '0'));
+        updateText('modal-minutes', minutes.toString().padStart(2, '0'));
+        updateText('modal-seconds', seconds.toString().padStart(2, '0'));
+
+      }, 1000);
+
+      const remainingCoupons = document.getElementById('remainingCoupons');
+      if (remainingCoupons) {
+        let couponCount = 5;
+        const couponInterval = setInterval(() => {
+          if (couponCount > 1) {
+            couponCount--;
+            remainingCoupons.textContent = couponCount;
+          } else {
+            remainingCoupons.textContent = "ÚLTIMO";
+            clearInterval(couponInterval);
+          }
+        }, 30000); 
+      }
+    }
+    
+    // --- Lógica Principal al Cargar ---
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // --- 1. Aplicar A/B Test ---
+      const randomIndex = Math.floor(Math.random() * abVersions.length);
+      const selectedVersion = abVersions[randomIndex];
+      applyVersion(selectedVersion);
+
+      // --- 2. Animación de Scroll ---
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const sectionElements = document.querySelectorAll('.section-animate');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 100;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+        
+        sectionElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      };
+      
+      fadeInOnScroll();
+      window.addEventListener('scroll', fadeInOnScroll);
+      
+      // --- 3. Iniciar Temporizador ---
+      initializeCountdown();
+      
+      // --- 4. Lógica del Modal de Salida ---
+      const modal = document.getElementById('exit-intent-modal');
+      const closeModal = document.getElementById('close-modal');
+      let modalShown = false;
+
+      function showModal() {
+        if (modal && !modalShown) {
+          modal.style.display = 'flex';
+          modalShown = true; 
+          // Enfocar el modal para accesibilidad
+          modal.focus();
+        }
+      }
+
+      if (closeModal) {
+        closeModal.addEventListener('click', () => {
+          if (modal) modal.style.display = 'none';
+        });
+      }
+      
+      // Cerrar modal con tecla Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) {
+          showModal();
+        }
+      });
+      
+      // --- 5. Efecto de Partículas ---
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('a, button, .fa-info-circle, .faq-question')) return;
+        
+        for (let i = 0; i < 5; i++) {
+          createParticle(e.clientX, e.clientY);
+        }
+      });
+      
+      function createParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 8 + 4;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 50 + 30;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        
+        const colors = ['var(--color-dorado)', 'var(--color-bordo)'];
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        document.body.appendChild(particle);
+        particle.style.animation = 'particle-animation 0.8s ease-out forwards';
+        
+        setTimeout(() => {
+          particle.remove();
+        }, 800);
+      }
+      
+      // --- 6. Lazy Loading para imágenes ---
+      const lazyImages = document.querySelectorAll('.lazy-load');
+      
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.classList.add('loaded');
+              observer.unobserve(img);
+            }
+          });
+        });
+        
+        lazyImages.forEach(img => {
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback para navegadores que no soportan IntersectionObserver
+        lazyImages.forEach(img => {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
