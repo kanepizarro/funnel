@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon/Logo (usando un placeholder con tus colores) -->
+  <link rel="shortcut icon" href="https://placehold.co/64x64/490F1F/E3D0B1?text=K">
+  
+  <!-- Estilos y Fuentes -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  
+  <style>
+    /* Estilos base y variables de color */
+    * {
+      font-family: 'Montserrat', sans-serif;
+      box-sizing: border-box;
+      outline: none;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    :root {
+      --color-crema: #E3D0B1;
+      --color-bordo: #490F1F;
+      --color-mostaza: #C2A05A;
+    }
+    /* Clases personalizadas para degradados y efectos */
+    .bg-gradient-bordo {
+      background: linear-gradient(145deg, var(--color-bordo), #2a0811);
+    }
+    .btn-mostaza {
+      background-color: var(--color-mostaza);
+      color: var(--color-bordo);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px -5px rgba(194, 160, 90, 0.6);
+    }
+    .btn-mostaza:hover {
+      transform: translateY(-3px);
+      background-color: #d4b06a;
+      box-shadow: 0 6px 20px -5px rgba(194, 160, 90, 0.8);
+    }
+    .modal-overlay {
+      transition: opacity 0.3s ease-in-out;
+    }
+    .modal-content {
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+  
+  <script>
+    // Configuración de Tailwind para usar los colores personalizados
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crema: '#E3D0B1',
+            bordo: '#490F1F',
+            mostaza: '#C2A05A',
+          }
+        }
+      }
+    }
+  </script>
+  <title>¡Que no te estafen más con tu Página Web!</title>
+</head>
+<body class="bg-crema text-bordo overflow-x-hidden">
+
+  <!-- SECCIÓN 1: HERO (EL GANCHO) -->
+  <header class="bg-gradient-bordo text-crema pt-12 pb-20 md:py-32 text-center overflow-hidden md:h-screen flex flex-col justify-center">
+    <div class="container mx-auto px-6">
+      <!-- Logo más grande (h-20) -->
+      <img src="kane-pizarro-fondo-blanco.png" alt="Logo Kane Pizarro" class="mx-auto mb-2 h-56 rounded-full">
+      <!-- Nombre añadido -->
+      <h2 class="text-xl md:text-3xl font-bold mb-4 text-mostaza drop-shadow-md">KANE PIZARRO</h2>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">¿Te ESTAFARON al crear tu web?</h1>
+      <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto text-crema/90">Ya no dejes que te cobren S/.3000 por algo que vale S/.400. <br>Descarga nuestro PDF GRATIS y descubre cómo te engañan.</p>
+      <button class="btn-mostaza text-lg md:text-xl shadow-lg open-modal">
+        <i class="fas fa-download mr-2"></i>
+        Obtener PDF GRATIS Ahora
+      </button>
+      <p class="text-sm mt-4 text-crema/70">¡Descubre los 7 secretos que no quieren que sepas!</p>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 2: CARRUSEL DE "CASOS REALES" (PRUEBA SOCIAL) -->
+  <section class="bg-white py-16 shadow-2xl relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4 text-bordo">Ellos confiaron en "expertos"</h2>
+      <p class="text-center text-lg text-gray-700 mb-10 max-w-2xl mx-auto">Algunos fueron estafados. Otros, decidieron ahorrar con nosotros.</p>
+      
+      <!-- Contenedor del Carrusel -->
+      <div class="relative w-full max-w-6xl mx-auto overflow-hidden">
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+          <!-- Los slides se duplicarán con JS para el efecto infinito -->
+        </div>
+        <!-- Sombras para efecto 'fade' -->
+        <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent"></div>
+        <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: LOS 7 CONSEJOS (LEAD MAGNET) -->
+  <section class="py-20 bg-crema/60">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center text-bordo mb-4">Las 7 Estafas MÁS COMUNES</h2>
+      <p class="text-center text-lg text-gray-700 mb-12">Descarga el PDF para ver la guía completa. Aquí un adelanto:</p>
+
+      <!-- Acordeón de Consejos -->
+      <div id="accordion-container" class="space-y-4">
+        
+        <!-- Consejo 1 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">1. El Dominio y Hosting "Gratis" que no lo es</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            Te dicen que es "gratis" el primer año, pero te obligan a firmar un contrato de 3 años con precios inflados de S/.500 al año por renovación, cuando un hosting y dominio no deberían costar más de S/.200 anuales.
+          </div>
+        </div>
+
+        <!-- Consejo 2 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">2. Te "Alquilan" tu propia página web</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            Muchas agencias te cobran un "mantenimiento" mensual obligatorio. El día que dejas de pagar, dan de baja tu web y pierdes todo. ¡Tu web NUNCA es tuya! Es un alquiler disfrazado de servicio.
+          </div>
+        </div>
+        
+        <!-- Consejo 3 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">3. Te venden con "Términos Complejos"</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            "Implementaremos un CMS headless con JAMstack y server-side rendering...". Usan lenguaje técnico para justificar un cobro de S/.5000 por una simple web informativa que no necesita esa complejidad.
+          </div>
+        </div>
+
+        <!-- Consejo 4 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">4. Revenden servicios de terceros a sobreprecio</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            Te cobran S/.300 por un "certificado SSL de alta seguridad" que hoy en día es GRATIS (Let's Encrypt) y viene incluido en la mayoría de hostings.
+          </div>
+        </div>
+
+        <!-- Consejo 5 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">5. Plantillas "Premium" que son gratuitas</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            Te dicen que diseñaron una plantilla "exclusiva" para ti (S/.1500), cuando en realidad descargaron una plantilla gratuita o de S/.50 de WordPress y solo cambiaron los colores y tu logo.
+          </div>
+        </div>
+
+        <!-- Consejo 6 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">6. "Optimización SEO" que no existe</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            Te cobran S/.1000 por "posicionamiento SEO" y lo único que hacen es instalar un plugin gratuito como Yoast SEO y ni siquiera configuran los títulos o descripciones. El SEO real es un trabajo constante, no un pago único.
+          </div>
+        </div>
+        
+        <!-- Consejo 7 -->
+        <div class="bg-white rounded-lg shadow-md border border-bordo/10 overflow-hidden">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <span class="text-lg font-semibold text-bordo">7. No te entregan los accesos completos</span>
+            <span class="iconify text-bordo text-2xl" data-icon="fa-solid:chevron-down"></span>
+          </button>
+          <div class="accordion-content hidden p-5 pt-0 text-gray-700">
+            El "desarrollador" se queda con el acceso principal a tu hosting (cPanel) o al administrador de tu web "para darte soporte". Eres un rehén de su servicio. Si quieres irte con otro proveedor, no puedes.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12">
+        <button class="btn-mostaza text-lg md:text-xl shadow-lg open-modal">
+          <i class="fas fa-file-pdf mr-2"></i>
+          Quiero el PDF Completo ¡YA!
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: LA SOLUCIÓN (OFERTA PRINCIPAL) -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center text-bordo mb-4">Basta de Estafas. Te presento la Solución HONESTA.</h2>
+      <p class="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">Deja de pagar de más. Te ofrecemos transparencia total y precios justos. Tú eres dueño de TODO.</p>
+    
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Oferta 1: RECOMENDADA (S/.400) -->
+        <div class="bg-white rounded-lg shadow-xl border-4 border-mostaza p-8 relative transform hover:scale-105 transition-transform duration-300">
+          <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-mostaza text-bordo text-sm font-bold px-4 py-1 rounded-full uppercase shadow-lg">Recomendado</span>
+          <h3 class="text-2xl font-bold text-bordo text-center mb-4">Plan Emprendedor Transparente</h3>
+          <p class="text-center text-6xl font-extrabold text-bordo mb-4">S/.400</p>
+          <p class="text-center text-gray-600 font-semibold mb-6">Pago ÚNICO. Sin mensualidades.</p>
+          
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Página Web Profesional (Landing Page)</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span class="font-bold">Dominio .com GRATIS</span> x 1 Año</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span class="font-bold">Hosting GRATIS</span> x 1 Año</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Diseño Adaptable a Móviles</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Botón de WhatsApp y Redes Sociales</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Te entregamos TODOS los accesos</li>
+          </ul>
+          
+          <button class="btn-mostaza w-full text-center text-lg open-modal">
+            ¡Lo Quiero! (y quiero el PDF)
+          </button>
+        </div>
+
+        <!-- Oferta 2: DOWNSELL (S/.300) -->
+        <div class="bg-white rounded-lg shadow-xl border-2 border-gray-300 p-8 transform hover:scale-105 transition-transform duration-300">
+          <h3 class="text-2xl font-bold text-bordo text-center mb-4">Opción Ahorro (GitHub)</h3>
+          <p class="text-center text-6xl font-extrabold text-bordo mb-4">S/.300</p>
+          <p class="text-center text-gray-600 font-semibold mb-6">Pago ÚNICO. Súper veloz.</p>
+          
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Página Web Estática (Landing Page)</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span class="font-bold">Hosting GRATIS en GitHub</span> (de por vida)</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Diseño Adaptable a Móviles</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Botón de WhatsApp y Redes Sociales</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Te entregamos el código fuente</li>
+          </ul>
+          
+          <button class="w-full text-center text-lg bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors duration-300 open-modal">
+            Me interesa esta opción
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- SECCIÓN 5: CROSS-SELL / TRIPWIRE (S/.7) -->
+  <section class="py-16 bg-gradient-bordo text-crema shadow-inner-lg">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-pulse">¡ESPERA! SÓLO POR HOY...</h2>
+      <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto text-crema/90">
+        Al descargar tu PDF, desbloquea el acceso a nuestra <span class="font-bold text-mostaza">App Generadora de Flyers</span> por un precio ridículo.
+      </p>
+      
+      <div class="bg-white text-bordo rounded-lg shadow-2xl max-w-lg mx-auto p-8 relative">
+        <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-red-600 text-white text-sm font-bold px-4 py-1 rounded-full uppercase shadow-lg animate-bounce">¡Oferta Exclusiva!</span>
+        
+        <h3 class="text-2xl font-bold mb-2">Acceso a "FlyerApp" + 5 Créditos</h3>
+        <p class="text-gray-700 mb-4">Crea anuncios profesionales en segundos. Ideal para tus redes sociales.</p>
+        
+        <div class="flex justify-center items-center space-x-4 mb-6">
+          <p class="text-4xl line-through text-gray-400 font-light">S/.15</p>
+          <p class="text-7xl font-extrabold text-bordo">S/.7</p>
+        </div>
+        <p class="text-green-600 font-bold text-xl mb-6">¡Ahorras más del 50%!</p>
+        
+        <button class="btn-mostaza w-full text-center text-lg open-modal">
+          ¡Sí, Quiero la App por S/.7 + mi PDF!
+        </button>
+        <p class="text-sm mt-3 text-gray-500">Recibirás la información de pago junto con tu PDF.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-bordo text-crema/70 text-center py-8">
+    <p>&copy; 2025 Kane Pizarro. Todos los derechos reservados.</p>
+    <p class="text-sm">Transparencia y honestidad</p>
+  </footer>
+
+  <!-- MODAL DEL FORMULARIO -->
+  <div id="modal" class="modal-overlay fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+    <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8 transform scale-95 relative">
+      <!-- Botón de Cerrar -->
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-bordo text-3xl">
+        &times;
+      </button>
+      
+      <h2 class="text-2xl font-extrabold text-bordo mb-2">¡Estás a un paso!</h2>
+      <p class="text-gray-600 mb-6">Completa tus datos para recibir el <span class="font-bold">PDF "Anti-Estafas"</span> y calificar para nuestras ofertas.</p>
+      
+      <form id="lead-form">
+        <div class="mb-4">
+          <label for="nombre" class="block text-sm font-bold text-gray-700 mb-2">Tu Nombre Completo</label>
+          <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mostaza" placeholder="Ej: Juan Pérez" required>
+        </div>
+        
+        <div class="mb-4">
+          <label for="rubro" class="block text-sm font-bold text-gray-700 mb-2">Tu Rubro o Negocio</label>
+          <input type="text" id="rubro" name="rubro" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mostaza" placeholder="Ej: Restaurante, Tienda de Ropa, Consultor" required>
+        </div>
+        
+        <p class="text-sm font-bold text-gray-700 mb-2">Cuéntanos (si te pasó):</albel>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="servicio-estafa" class="block text-xs font-semibold text-gray-600 mb-1">¿Con qué servicio te estafaron?</label>
+            <input type="text" id="servicio-estafa" name="servicio-estafa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mostaza" placeholder="Ej: Página web, Hosting, etc.">
+          </div>
+          <div>
+            <label for="monto-estafa" class="block text-xs font-semibold text-gray-600 mb-1">¿Cuánto pagaste (S/.)?</label>
+            <input type="number" id="monto-estafa" name="monto-estafa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mostaza" placeholder="Ej: 2000">
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-mostaza w-full text-center text-lg">
+          <i class="fab fa-whatsapp mr-2"></i>
+          Enviar y Recibir mi PDF
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- DATOS DEL CARRUSEL ---
+      const carouselData = [
+        { 
+          name: 'María G.', 
+          role: 'Dueña de Cafetería', 
+          quote: '"Me cobraron S/.4000 por una web que nunca funcionó. Sus ventas cayeron..."', 
+          type: 'loss' 
+        },
+        { 
+          name: 'Carlos R.', 
+          role: 'Consultor', 
+          quote: '"Ahorré S/.1500 con la opción de GitHub. ¡Mi web carga al instante!"', 
+          type: 'gain' 
+        },
+        { 
+          name: 'Ana T.', 
+          role: 'Tienda de Ropa', 
+          quote: '"Pagaba S/.300 al mes de \'mantenimiento\'. Era una estafa total."', 
+          type: 'loss' 
+        },
+        { 
+          name: 'Luis F.', 
+          role: 'Fotógrafo', 
+          quote: '"Con el Plan Transparente, soy dueño de todo. ¡Y me regalaron el dominio!"', 
+          type: 'gain' 
+        },
+        { 
+          name: 'Sofía M.', 
+          role: 'Restaurante', 
+          quote: '"La agencia anterior desapareció con mi dinero. Perdí 6 meses de ventas."', 
+          type: 'loss' 
+        },
+        { 
+          name: 'Jorge V.', 
+          role: 'Abogado', 
+          quote: '"Me explicaron todo simple. Cero términos complejos. 100% recomendado."', 
+          type: 'gain' 
+        }
+      ];
+
+      // --- LÓGICA DEL CARRUSEL ---
+      const track = document.getElementById('carousel-track');
+      if (track) {
+        // Duplicar los slides para el efecto infinito
+        const allSlides = [...carouselData, ...carouselData];
+        
+        allSlides.forEach(item => {
+          const isLoss = item.type === 'loss';
+          const chartColor = isLoss ? 'text-red-500' : 'text-green-500';
+          const chartIcon = isLoss ? 'ph:chart-line-down-bold' : 'ph:chart-line-up-bold';
+          
+          const slide = document.createElement('div');
+          slide.className = 'flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4';
+          slide.innerHTML = `
+            <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-200 h-full flex flex-col">
+              <div class="flex items-center mb-4">
+                <span class="iconify ${chartColor} text-5xl mr-4" data-icon="${chartIcon}"></span>
+                <div>
+                  <p class="font-bold text-lg text-bordo">${item.name}</p>
+                  <p class="text-sm text-gray-500">${item.role}</p>
+                </div>
+              </div>
+              <p class="text-gray-700 italic">"${item.quote}"</p>
+            </div>
+          `;
+          track.appendChild(slide);
+        });
+
+        // Animación del carrusel
+        let position = 0;
+        const speed = 1; // 1 píxel por frame
+
+        function animateCarousel() {
+          position -= speed;
+          // Si se ha movido la mitad del track (la longitud original de los datos), resetea
+          if (Math.abs(position) >= track.scrollWidth / 2) {
+            position = 0;
+          }
+          track.style.transform = `translateX(${position}px)`;
+          requestAnimationFrame(animateCarousel);
+        }
+        requestAnimationFrame(animateCarousel);
+      }
+      
+      // --- LÓGICA DEL ACORDEÓN ---
+      const accordionContainer = document.getElementById('accordion-container');
+      if(accordionContainer) {
+        accordionContainer.addEventListener('click', (e) => {
+          const header = e.target.closest('.accordion-header');
+          if (!header) return;
+          
+          const content = header.nextElementSibling;
+          const icon = header.querySelector('.iconify');
+          
+          content.classList.toggle('hidden');
+          
+          if (content.classList.contains('hidden')) {
+            icon.setAttribute('data-icon', 'fa-solid:chevron-down');
+          } else {
+            icon.setAttribute('data-icon', 'fa-solid:chevron-up');
+          }
+        });
+      }
+
+      // --- LÓGICA DEL MODAL ---
+      const modal = document.getElementById('modal');
+      const closeModalBtn = document.getElementById('close-modal');
+      const openModalBtns = document.querySelectorAll('.open-modal');
+      const body = document.body;
+
+      function openModal() {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.querySelector('.modal-content').classList.remove('scale-95');
+        body.classList.add('overflow-hidden'); // Evitar scroll del fondo
+      }
+
+      function closeModal() {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.querySelector('.modal-content').classList.add('scale-95');
+        body.classList.remove('overflow-hidden');
+      }
+
+      openModalBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+      });
+
+      closeModalBtn.addEventListener('click', closeModal);
+
+      // Cerrar modal al hacer clic fuera del contenido
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // --- LÓGICA DEL FORMULARIO WHATSAPP ---
+      const leadForm = document.getElementById('lead-form');
+      if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // REEMPLAZA ESTE NÚMERO con tu número de WhatsApp
+          const miNumeroWA = '+51966002733'; // Formato internacional (ej: +51 para Perú)
+          
+          const nombre = document.getElementById('nombre').value;
+          const rubro = document.getElementById('rubro').value;
+          const servicioEstafa = document.getElementById('servicio-estafa').value || 'No especificó';
+          const montoEstafa = document.getElementById('monto-estafa').value || 'No especificó';
+
+          let mensaje = `¡Hola! Vengo de la página web y quiero mi PDF GRATIS "Anti-Estafas".\n\nMis datos son:\n`;
+          mensaje += `*Nombre:* ${nombre}\n`;
+          mensaje += `*Rubro:* ${rubro}\n\n`;
+          mensaje += `*Info de Estafa (Opcional):*\n`;
+          mensaje += `*Servicio:* ${servicioEstafa}\n`;
+          mensaje += `*Monto (S/.):* ${montoEstafa}\n\n`;
+          mensaje += `¡Gracias! Quedo atento/a.`;
+
+          const whatsappURL = `https://api.whatsapp.com/send?phone=${miNumeroWA}&text=${encodeURIComponent(mensaje)}`;
+          
+          // Abrir WhatsApp en una nueva pestaña
+          window.open(whatsappURL, '_blank');
+          
+          // Cerrar el modal y resetear el formulario
+          closeModal();
+          leadForm.reset();
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
